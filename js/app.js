@@ -11,48 +11,48 @@ let totalPerHour = [];
 let finalTotal = 0;
 
 function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function ShopeSales(name, min, max, avgCookie) {
-    this.name = name;
-    this.min = min;
-    this.max = max;
-    this.avgCookie = avgCookie;
-    this.cookiePerHour = [];
-    this.total = 0;
+  this.name = name;
+  this.min = min;
+  this.max = max;
+  this.avgCookie = avgCookie;
+  this.cookiePerHour = [];
+  this.total = 0;
 }
 ShopeSales.prototype.getCookie = function () {
-    for (let i = 0; i < hours.length; i++) {
-        this.cookiePerHour.push(Math.floor(randomNumber(this.min, this.max) * this.avgCookie));
-        this.total += this.cookiePerHour[i];
-        totalPerHour[i] += this.cookiePerHour[i];
+  for (let i = 0; i < hours.length; i++) {
+    this.cookiePerHour.push(Math.floor(randomNumber(this.min, this.max) * this.avgCookie));
+    this.total += this.cookiePerHour[i];
+    totalPerHour[i] += this.cookiePerHour[i];
 
-    }
+  }
 };
 
 
 //Header For The Table Function
 
 function headOfTeable() {
-    parent.appendChild(theTable);
-    let headRow = document.createElement('tr');
-    theTable.appendChild(headRow);
+  parent.appendChild(theTable);
+  let headRow = document.createElement('tr');
+  theTable.appendChild(headRow);
 
-    let thE1 = document.createElement('th');
-    headRow.appendChild(thE1);
-    thE1.textContent = ' ';
+  let thE1 = document.createElement('th');
+  headRow.appendChild(thE1);
+  thE1.textContent = ' ';
 
-    for (let i = 0; i < hours.length; i++) {
-        let theE12 = document.createElement('th');
-        headRow.appendChild(theE12);
-        theE12.textContent = hours[i];
-        totalPerHour.push(0);
-    }
+  for (let i = 0; i < hours.length; i++) {
+    let theE12 = document.createElement('th');
+    headRow.appendChild(theE12);
+    theE12.textContent = hours[i];
+    totalPerHour.push(0);
+  }
 
-    let thE13 = document.createElement('th');
-    headRow.appendChild(thE13);
-    thE13.textContent = 'Location Total';
+  let thE13 = document.createElement('th');
+  headRow.appendChild(thE13);
+  thE13.textContent = 'Location Total';
 }
 
 headOfTeable();
@@ -61,22 +61,22 @@ headOfTeable();
 // The Render Function
 
 ShopeSales.prototype.render = function () {
-    parent.appendChild(theTable);
-    let trE1 = document.createElement('tr');
-    theTable.appendChild(trE1);
+  parent.appendChild(theTable);
+  let trE1 = document.createElement('tr');
+  theTable.appendChild(trE1);
+  let tdE1 = document.createElement('td');
+  trE1.appendChild(tdE1);
+  tdE1.textContent = this.name;
+  for (let i = 0; i < hours.length; i++) {
     let tdE1 = document.createElement('td');
     trE1.appendChild(tdE1);
-    tdE1.textContent = this.name;
-    for (let i = 0; i < hours.length; i++) {
-        let tdE1 = document.createElement('td');
-        trE1.appendChild(tdE1);
-        tdE1.textContent = this.cookiePerHour[i];
-    }
-    let tdE12 = document.createElement('td');
-    trE1.appendChild(tdE12);
-    tdE12.textContent = Math.floor(this.total);
-    finalTotal += this.total;
-}
+    tdE1.textContent = this.cookiePerHour[i];
+  }
+  let tdE12 = document.createElement('td');
+  trE1.appendChild(tdE12);
+  tdE12.textContent = Math.floor(this.total);
+  finalTotal += this.total;
+};
 
 
 const Seattle = new ShopeSales('Seattle', 23, 65, 6.3);
@@ -111,19 +111,19 @@ Lima.render();
 // Footer For The Table Function
 
 function bottomOfTable() {
-    parent.appendChild(theTable);
-    let trE1 = document.createElement('tr');
-    theTable.appendChild(trE1);
+  parent.appendChild(theTable);
+  let trE1 = document.createElement('tr');
+  theTable.appendChild(trE1);
+  let tdE1 = document.createElement('td');
+  trE1.appendChild(tdE1);
+  tdE1.textContent = 'Total Per Hour For All Locations';
+  for (let i = 0; i < hours.length; i++) {
     let tdE1 = document.createElement('td');
     trE1.appendChild(tdE1);
-    tdE1.textContent = 'Total Per Hour For All Locations';
-    for (let i = 0; i < hours.length; i++) {
-        let tdE1 = document.createElement('td');
-        trE1.appendChild(tdE1);
-        tdE1.textContent = totalPerHour[i];
-    }
-    let tdE12 = document.createElement('td');
-    trE1.appendChild(tdE12);
-    tdE12.textContent = finalTotal;
+    tdE1.textContent = totalPerHour[i];
+  }
+  let tdE12 = document.createElement('td');
+  trE1.appendChild(tdE12);
+  tdE12.textContent = finalTotal;
 }
 bottomOfTable();
