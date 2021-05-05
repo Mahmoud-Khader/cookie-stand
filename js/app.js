@@ -106,6 +106,26 @@ Lima.getCookie();
 Lima.render();
 
 
+let shopForm = document.getElementById('shopForm');
+shopForm.addEventListener('submit', submitter);
+
+function submitter(event) {
+  event.preventDefault();
+
+  let name = event.target.name.value;
+  let min = event.target.min.value;
+  let max = event.target.max.value;
+  let avgCookie = event.target.avgCookie.value;
+  console.log(name,min,max,avgCookie);
+
+  let addLocation = new ShopeSales(name, min, max, avgCookie);
+  theTable.deleteRow(theTable.rows.length -1);
+  addLocation.getCookie();
+  console.log(addLocation.cookiePerHour);
+  shopForm.reset();
+  addLocation.render();
+  bottomOfTable();
+}
 
 
 // Footer For The Table Function
@@ -116,7 +136,7 @@ function bottomOfTable() {
   theTable.appendChild(trE1);
   let tdE1 = document.createElement('td');
   trE1.appendChild(tdE1);
-  tdE1.textContent = 'Total Per Hour For All Locations';
+  tdE1.textContent = 'Total';
   for (let i = 0; i < hours.length; i++) {
     let tdE1 = document.createElement('td');
     trE1.appendChild(tdE1);
@@ -127,3 +147,21 @@ function bottomOfTable() {
   tdE12.textContent = finalTotal;
 }
 bottomOfTable();
+
+
+
+/*let shopForm = document.getElementById('shopForm');
+shopForm.addEventListener('submit', submitter);
+
+function submitter(event) {
+  event.preventDefault();
+
+  let name = event.target.name.value;
+  let min = event.target.min.value;
+  let max = event.target.max.value;
+  let avgCookie = event.target.avgCookie.value;
+
+  let addLocation = new Location(name, min, max, avgCookie);
+  addLocation.render();
+  Location.event.render();
+}*/
