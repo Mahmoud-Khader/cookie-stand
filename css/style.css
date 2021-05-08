@@ -1,0 +1,96 @@
+*{
+    font-family: 'risque',cursive;
+}
+body{
+    background: url(../img/cookieimg.jpg)no-repeat center fixed;
+    background-size: cover;
+}
+header{
+    background-color: rgb(80, 33, 1);
+    
+}
+p{
+   clear: both;
+    font-size: xx-large;
+    color: rgb(80, 33, 1);
+    padding: 5px;
+}
+h1{
+    position: relative;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+#salmon{
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 20%;
+    display: block;
+    
+}
+nav ul li{
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    float: left;
+}
+label{
+    color: white;
+    padding: 20px;
+}
+fieldset{
+    padding: 6px;
+}
+td {
+    border: 1px solid black;
+}
+table{
+    width: 75%;
+    text-align: center;
+    padding: 5px;
+    margin-left: 100px;
+    background-color: white;
+}
+th{
+    height: 20px;
+    padding: 5px;
+    background-color: rgb(184, 138, 133);
+    border: 1px solid black;
+}
+img{
+   
+    padding: 10px;  
+}
+#family{
+    width: 50%;
+ 
+}
+footer{
+    background-color: rgb(88, 87, 87);
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 50px;
+}
+main div{
+    font-size: 30px;
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
+main a{
+    text-decoration: none;
+    color: wheat;
+    padding: 20px;
+}
+h3 {
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    margin-left: 50px;
+}
