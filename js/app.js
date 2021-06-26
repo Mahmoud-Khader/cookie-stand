@@ -120,6 +120,11 @@ function submitter(event) {
 
   let addLocation = new ShopeSales(name, min, max, avgCookie);
   theTable.deleteRow(theTable.rows.length -1);
+  if (max<=min) {
+    alert('max must be greater than min , and focus please kids can know that :D');
+    window.location.reload();
+  }
+  
   addLocation.getCookie();
   console.log(addLocation.cookiePerHour);
   shopForm.reset();
@@ -150,18 +155,4 @@ bottomOfTable();
 
 
 
-/*let shopForm = document.getElementById('shopForm');
-shopForm.addEventListener('submit', submitter);
 
-function submitter(event) {
-  event.preventDefault();
-
-  let name = event.target.name.value;
-  let min = event.target.min.value;
-  let max = event.target.max.value;
-  let avgCookie = event.target.avgCookie.value;
-
-  let addLocation = new Location(name, min, max, avgCookie);
-  addLocation.render();
-  Location.event.render();
-}*/
